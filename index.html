@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Concerns Identifier</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            background: linear-gradient(135deg, #fff7f0 0%, #ffe3e3 100%);
+            color: #2d1a06;
+            min-height: 100vh;
+        }
+        header {
+            background: #fff;
+            color: #b42828;
+            padding: 28px 0 20px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 2px 12px rgba(180,40,40,0.10);
+            backdrop-filter: blur(8px);
+        }
+        .logo {
+            font-size: 2.1em;
+            font-weight: bold;
+            margin-left: 48px;
+            letter-spacing: 2px;
+            text-shadow: 0 2px 8px rgba(180,40,40,0.13);
+            font-family: 'Segoe Script', 'Comic Sans MS', cursive, sans-serif;
+            color: #b42828;
+        }
+        nav a {
+            color: #b42828;
+            text-decoration: none;
+            margin: 0 18px;
+            font-weight: 500;
+            font-size: 1.08em;
+            transition: color 0.2s, background 0.2s;
+            text-shadow: 0 1px 4px rgba(180,40,40,0.10);
+            border-radius: 8px;
+            padding: 6px 12px;
+        }
+        nav a:hover {
+            color: #fff;
+            background: #b42828;
+        }
+        .glass {
+            background: rgba(255,255,255,0.75);
+            box-shadow: 0 8px 32px 0 rgba(180,40,40,0.10);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border-radius: 22px;
+            border: 1.5px solid rgba(180,40,40,0.10);
+        }
+        .hero {
+            background: linear-gradient(120deg, #ffe3e3 60%, #fff7f0 100%);
+            text-align: center;
+            padding: 90px 20px 70px 20px;
+            border-radius: 0 0 36px 36px;
+            box-shadow: 0 4px 24px rgba(180,40,40,0.07);
+            margin-bottom: 44px;
+        }
+        .hero-content {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 48px 28px;
+        }
+        .hero .glass {
+            display: inline-block;
+            width: 100%;
+        }
+        .hero h1 {
+            font-size: 2.5em;
+            margin-bottom: 18px;
+            color: #b42828;
+            font-weight: 700;
+            font-family: 'Segoe Script', 'Comic Sans MS', cursive, sans-serif;
+            text-shadow: 0 2px 8px rgba(180,40,40,0.13);
+        }
+        .hero p {
+            font-size: 1.18em;
+            margin-bottom: 32px;
+            color: #2d1a06;
+        }
+        .cta-btn {
+            background: #b42828;
+            color: #fff;
+            border: none;
+            padding: 18px 44px;
+            font-size: 1.1em;
+            border-radius: 16px;
+            cursor: pointer;
+            font-weight: 600;
+            box-shadow: 0 2px 8px rgba(180,40,40,0.13);
+            transition: background 0.2s, transform 0.2s;
+            margin-bottom: 8px;
+            font-family: inherit;
+        }
+        .cta-btn:hover {
+            background: #8a1e1e;
+            transform: translateY(-2px) scale(1.03);
+        }
+        .features, .testimonials {
+            padding: 60px 20px 40px 20px;
+            max-width: 1000px;
+            margin: 0 auto 40px auto;
+        }
+        .features h2, .testimonials h2 {
+            text-align: center;
+            margin-bottom: 18px;
+            font-size: 2em;
+            color: #b42828;
+            font-weight: 700;
+            font-family: 'Segoe Script', 'Comic Sans MS', cursive, sans-serif;
+            text-shadow: 0 2px 8px rgba(180,40,40,0.13);
+        }
+        .features-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 36px;
+            margin-top: 36px;
+        }
+        .feature {
+            width: 270px;
+            text-align: center;
+            padding: 32px 24px;
+        }
+        .feature .glass {
+            height: 100%;
+            padding: 32px 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255,255,255,0.85);
+            border-radius: 22px;
+            border: 1.5px solid #ffe3e3;
+            box-shadow: 0 4px 16px rgba(180,40,40,0.07);
+        }
+        .feature h3 {
+            color: #b42828;
+            margin-bottom: 12px;
+            font-size: 1.22em;
+            font-family: 'Segoe Script', 'Comic Sans MS', cursive, sans-serif;
+        }
+        .feature p {
+            color: #2d1a06;
+            font-size: 1.05em;
+        }
+        .testimonials-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 36px;
+            margin-top: 36px;
+        }
+        .testimonial {
+            width: 270px;
+            font-style: italic;
+            position: relative;
+            padding: 0;
+        }
+        .testimonial .glass {
+            padding: 28px 22px;
+            position: relative;
+            background: rgba(255,255,255,0.92);
+            border-radius: 22px;
+            border: 1.5px solid #ffe3e3;
+            box-shadow: 0 4px 16px rgba(180,40,40,0.07);
+        }
+        .testimonial:before {
+            content: "“";
+            font-size: 2.5em;
+            color: #ff7a7a;
+            position: absolute;
+            left: 18px;
+            top: 10px;
+            z-index: 2;
+            pointer-events: none;
+        }
+        .testimonial p {
+            margin: 0 0 18px 0;
+            color: #2d1a06;
+        }
+        .testimonial strong {
+            color: #b42828;
+            font-style: normal;
+            font-size: 1em;
+        }
+        footer {
+            background: #fff;
+            color: #b42828;
+            text-align: center;
+            padding: 28px 0 18px 0;
+            margin-top: 40px;
+            border-radius: 24px 24px 0 0;
+            box-shadow: 0 -2px 12px rgba(180,40,40,0.10);
+            backdrop-filter: blur(8px);
+        }
+        .social-links {
+            margin-top: 10px;
+        }
+        .social-links a {
+            color: #b42828;
+            margin: 0 14px;
+            text-decoration: none;
+            font-size: 1.5em;
+            transition: color 0.2s;
+            text-shadow: 0 1px 4px rgba(180,40,40,0.13);
+        }
+        .social-links a:hover {
+            color: #ff7a7a;
+        }
+        /* Fade-in effect for sections */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s cubic-bezier(.4,0,.2,1), transform 0.8s cubic-bezier(.4,0,.2,1);
+            will-change: opacity, transform;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: none;
+        }
+        @media (max-width: 900px) {
+            .features-list, .testimonials-list { flex-direction: column; align-items: center; }
+            .feature, .testimonial { width: 95%; }
+            header { flex-direction: column; align-items: flex-start; }
+            .logo { margin-left: 24px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="glass fade-in">
+        <div class="logo">HealthID</div>
+        <nav>
+            <a href="#features">Features</a>
+            <a href="#testimonials">Testimonials</a>
+            <a href="#footer">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero fade-in">
+        <div class="hero-content glass">
+            <h1>Identify Minor Health Concerns Easily</h1>
+            <p>Your go-to website for quick, reliable health insights. Empower yourself with knowledge and take charge of your well-being.</p>
+            <button class="cta-btn" onclick="alert('Feature coming soon!')">Get Started</button>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features fade-in" id="features">
+        <h2>Features</h2>
+        <p style="text-align:center; color:#2d1a06;">Discover how our platform helps you stay informed and healthy.</p>
+        <div class="features-list">
+            <div class="feature">
+                <div class="glass">
+                    <h3>Symptom Checker</h3>
+                    <p>Input your symptoms and get instant suggestions for minor health issues.</p>
+                </div>
+            </div>
+            <div class="feature">
+                <div class="glass">
+                    <h3>Health Tips</h3>
+                    <p>Receive daily tips to maintain your health and prevent common ailments.</p>
+                </div>
+            </div>
+            <div class="feature">
+                <div class="glass">
+                    <h3>User-Friendly</h3>
+                    <p>Simple, intuitive interface for users of all ages.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials fade-in" id="testimonials">
+        <h2>What Our Users Say</h2>
+        <div class="testimonials-list">
+            <div class="testimonial">
+                <div class="glass">
+                    <p>This site helped me understand my symptoms quickly. Highly recommended!</p>
+                    <strong>- Alex</strong>
+                </div>
+            </div>
+            <div class="testimonial">
+                <div class="glass">
+                    <p>Easy to use and very informative. I feel more confident about my health.</p>
+                    <strong>- Jamie</strong>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer" class="glass fade-in">
+        <div>&copy; 2025 HealthID. All rights reserved.</div>
+        <div class="social-links">
+            <a href="#" title="Twitter">&#x1F426;</a>
+            <a href="#" title="Facebook">&#x1F5E8;</a>
+            <a href="#" title="Instagram">&#x1F33F;</a>
+        </div>
+    </footer>
+    <script>
+        // Fade-in on scroll effect (works both down and up)
+        document.addEventListener("DOMContentLoaded", function () {
+            const fadeEls = document.querySelectorAll('.fade-in');
+            const reveal = () => {
+                const trigger = window.innerHeight * 0.92;
+                fadeEls.forEach(el => {
+                    const rect = el.getBoundingClientRect();
+                    if (rect.top < trigger && rect.bottom > 60) {
+                        el.classList.add('visible');
+                    } else {
+                        el.classList.remove('visible');
+                    }
+                });
+            };
+            window.addEventListener('scroll', reveal, { passive: true });
+            window.addEventListener('resize', reveal, { passive: true });
+            reveal();
+        });
+    </script>
+</body>
+</html>
